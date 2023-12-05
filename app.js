@@ -9,6 +9,8 @@ const adminRouter = require('./routes/admin')
 
 var app = express();
 
+require('dotenv').config()
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -19,7 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// require('./helpers/mongoConnect')
+const mogo = require('./helpers/mongoConnect')
+// mogo()
+
 
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
