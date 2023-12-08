@@ -2,10 +2,18 @@
 <html>
   <head>
     <title>Vocabulary Builder</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Vocabulary Builder</h1>
-    <p>Welcome to Vocabulary Builder</p>
+    <div class="container">
+      <h1 class="text-center">Vocabulary Builder</h1>
+      <p class="text-center">Welcome to Vocabulary Builder</p>
+      <form><button type="submit" formaction="/words">go to words</button></form>
+      <br>
+      <button onclick="window.location.href='/sentences'">go to sentences</button>
+    </div> 
   </body>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
