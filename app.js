@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session')
 
 const userRouter = require('./routes/users')
 const adminRouter = require('./routes/admin')
@@ -29,7 +30,7 @@ const mogo = require('./helpers/mongoConnect')
 
 
 app.use('/', userRouter);
-app.use('/admin', adminRouter);
+app.use('/', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
