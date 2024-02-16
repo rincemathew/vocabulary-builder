@@ -1,10 +1,20 @@
+const userModel = require("../models/users")
+
 const login = async(req,res) => {
     res.render("admin-login",{})
 }
 
 const loginTo = async(req,res) => {
-    console.log("hello")
-    console.log(req.body.email)
+    const {email, password} = req.body
+    const userData = await userModel.findOne({user_name:email})
+    console.log(userData)
+    if(userData) {
+        if(userData.password === password) {
+            return res.render("admin-home", {})
+        }
+    } else {
+        return res.render("admin-login",{})
+    }
     res.render("admin-login",{})
 }
 
