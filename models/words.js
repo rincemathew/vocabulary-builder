@@ -12,6 +12,9 @@ const wordsSchema = mongoose.Schema({
     pronunciation:{
         type:String,
     },
+    levels:{
+        type:String,
+    },
     example:{
         type:String,
     },

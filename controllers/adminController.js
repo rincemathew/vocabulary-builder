@@ -10,10 +10,10 @@ const loginTo = async(req,res) => {
     console.log(userData)
     if(userData) {
         if(userData.password === password) {
-            return res.render("admin-home", {})
+            return res.render("admin-home", {sucess:"successfully logged in"})
         }
     } else {
-        return res.render("admin-login",{})
+        return res.render("admin-login",{error:"username passoword missmatch"})
     }
     res.render("admin-login",{})
 }

@@ -5,9 +5,9 @@ const { routes } = require("../app");
 
 router.get("/", userController.mainPage);
 
-router.get("/words",userController.words)
+router.get("/words",userController.words);
 
-router.get("/sentences",userController.sentences)
+router.get("/sentences",userController.sentences);
 
 
 module.exports = router;

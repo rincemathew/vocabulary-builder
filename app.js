@@ -3,14 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session')
+const session = require('express-session');
 
-const userRouter = require('./routes/users')
-const adminRouter = require('./routes/admin')
+const userRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
 
 var app = express();
 
-require('dotenv').config()
+require('dotenv').config();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +27,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const mogo = require('./helpers/mongoConnect')
 // mogo()
+
+app.use(session({  
+  name: `vocsession`,
+  secret: 'some-secret-example',  
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: false, // This will only work if you have https enabled!
+    // maxAge: 60000 
+  } 
+}));
 
 
 app.use('/', userRouter);
